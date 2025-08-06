@@ -6,7 +6,7 @@ import os
 
 EXCEL_FILE = "Output.xlsx"
 
-# Fungsi sederhana: convert gambar ke teks angka via segmentasi digit
+# Fungsi sederhana: convert gambar ke angka via segmentasi digit (dummy extractor)
 def extract_digits(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     _, thresh = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY_INV)
@@ -94,7 +94,8 @@ else:
             wb.save(EXCEL_FILE)
             st.success(f"Data {nick} berhasil ditambahkan.")
 
-            st.experimental_rerun()
+            # Reset form
+            st.rerun()
         else:
             st.error("Nick dan screenshot harus diisi.")
 
